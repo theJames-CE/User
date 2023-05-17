@@ -46,7 +46,7 @@ class User:
 
         if self.is_rewards_member:
             print("User already a member.")
-            return self
+            return False
 
         # Have this method change the user's member
         # status to True and
@@ -55,7 +55,7 @@ class User:
         # set their gold card points to 200.
         self.gold_card_points = 200
 
-        return self
+        return True
 
     # spend_points(self, amount) - have this method decrease the user's points by the amount specified.
 
