@@ -46,7 +46,7 @@ class User:
 
         if self.is_rewards_member:
             print("User already a member.")
-            return False
+            return self
 
         # Have this method change the user's member
         # status to True and
@@ -54,6 +54,8 @@ class User:
 
         # set their gold card points to 200.
         self.gold_card_points = 200
+
+        return self
 
     # spend_points(self, amount) - have this method decrease the user's points by the amount specified.
 
@@ -64,7 +66,7 @@ class User:
     # spend that amount and handle appropriately.
 
         if self.gold_card_points < amount:
-            print("\n","ATTENTION!","\n","***Member has Insufficient Points***")
+            print("\n","ATTENTION!","\n","***Member has Insufficient Points***","\n")
             return # exit function!
 
         # decrease the user's points by the amount specified.
@@ -74,25 +76,21 @@ class User:
 print("\n")
 print("User 1: ")
 my_user = User("James", "Williams", "jbrandonw88@gmail.com", 35)
-my_user.spend_points(50) # User is not enrolled, so current points will display 0
 my_user.display_info()
-
-# User 1 re-enroll -----
-print("User 1 (re-enroll): ")
-my_user = User("James", "Williams", "jbrandonw88@gmail.com", 35)
+my_user.spend_points(50) # User is not enrolled, so current points will display 0 with an error message
 my_user.enroll()
-my_user.spend_points(50) # User is now enrolled with 200 points, so current points will display 150
+my_user.spend_points(50) # User is now enrolled, so current points will display 150
 my_user.display_info()
 
 # User 2 -----
 print("User 2: ")
-my_user = User("Shakira", "Sampson", "shakirasampson94@gmail.com", 30)
-my_user.enroll()
-my_user.spend_points(80) # User enrolled with 200 points, so current points will display 120
-my_user.display_info()
+user2 = User("Shakira", "Sampson", "shakirasampson94@gmail.com", 30)
+user2.enroll()
+user2.spend_points(80) # User enrolled with 200 points, so current points will display 120
+user2.display_info()
 
 # User 3 -----
 print("User 3: ")
-my_user = User("Sara", "Amato", "sara_amato89@gmail.com", 33)
-my_user.spend_points(40) # User is not enrolled, so current points will display 0
-my_user.display_info()
+user3 = User("Sara", "Amato", "sara_amato89@gmail.com", 33)
+user3.spend_points(40) # User is not enrolled, so current points will display 0 with an error message
+user3.display_info()
